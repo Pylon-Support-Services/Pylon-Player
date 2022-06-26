@@ -1,0 +1,20 @@
+#Platform{
+    width: 100vw;
+    height: 100vh;
+    background: red;
+}
+#Players{
+    width: 20%;
+    background: blue;
+}
+#Playlist{
+    width: 20%;
+    background: green;
+}
+#Content{
+    width: 60%;
+    background: purple;
+}
+.Container{
+    height: 100%;
+}
