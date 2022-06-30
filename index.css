@@ -1,20 +1,399 @@
+body{
+    margin: 0;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+tr:nth-child(odd) {
+    background-color: white;
+}
+tr:hover{
+    filter: brightness(50%);
+}
+tr.Heading{
+    filter: brightness(100%);
+}
+
+#Header{
+    width: 100vw;
+    height: 56px;
+    background: white;
+    display: flex;
+    box-shadow: 1px 1px 10px 2px rgba(0,0,0,.5);
+
+}
+#Logo{
+    height: 40px;
+    width: 40px;
+    margin: 8px;
+    display: inline-block;
+}
+#Logo img{
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+#Center{
+    width: calc(100% - 112px);
+    height: 50px;
+    margin: 3px;
+}
+#Profile{
+    width: 40px;
+    height: 40px;
+    margin: 8px;
+    background: white;
+    border-radius: 5em;
+    position: relative;
+    box-shadow: 1px 1px 5px 2px rgba(0,0,0,.25);
+}
+#Profile img{
+    width: 25px;
+    height: 25px;
+    margin: 7.5px;
+}
+#Status{
+    width: 10px;
+    height: 10px;
+    margin: 0px;
+    background: lightgreen;
+    border-radius: 5em;
+    position: relative;
+    top: 32.5px;
+    left: 5px;
+    position: absolute;
+}
 #Platform{
     width: 100vw;
-    height: 100vh;
+    height: calc(100vh - 56px);
     background: red;
+    display: flex;
+}
+.Header{
+    width: calc(100% - 10px);
+    height: 32px;
+    background: rgba(0,0,0,.25);
+    line-height: 32px;
+    padding: 5px;
+
+    position: absolute;
+
 }
 #Players{
     width: 20%;
-    background: blue;
+    background: rgb(250,250,250);
+
+    
 }
+.Group{
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+.GroupLabel{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    line-height: 28px;
+}
+.GroupLabelCaret{
+    height: 20px;
+    width: 20px;
+    padding: 4px;
+    translate: 1s;
+    transform: rotate(0deg);
+}
+.Group.Closed .GroupLabelCaret{
+    transform: rotate(-90deg);
+    translate: 1s;
+}
+.GroupLabelCaret svg{
+    height: 20px;
+    width: 20px;
+}
+.GroupLabelText{
+    width: 100%;
+    height: 28px;
+    user-select: none;
+
+    border-bottom: .5px solid rgba(0,0,0,.15);
+}
+.GroupLabelSelector{
+    background: rgb(50,50,50);
+    height: 28px;
+    width: 5px;
+    transition: .5s;
+
+    height: 100%;
+    position: absolute;
+    right: 0;
+}
+.Group.Closed .GroupLabelSelector{
+    width: 0px;
+    transition: .5s;
+}
+.GroupLabelSelector svg{
+    padding-right: 0;
+}
+.GroupList{
+    height: auto;
+    width: calc(100% - 25px);
+    padding-left: 25px;
+    border-bottom: 1px solid rgba(0,0,0,.10);
+}
+.PlayerList{
+    max-height: calc(100vh - 32px - 56px - 11px);
+    overflow-y: auto;
+    margin-top: 42px;
+}
+.Group.Closed .GroupList{
+    height: 0;
+    overflow: hidden;
+}
+.GroupListPlayer{
+    width: auto;
+    height: 20px;
+    border-radius: 2em;
+    background: teal;
+    margin: 2px;
+    display: inline-block;
+    padding: 1px;
+    padding-left: 7px;
+    padding-right: 7px;
+
+    cursor: pointer;
+    user-select: none;
+}
+
 #Playlist{
-    width: 20%;
-    background: green;
+    width: calc(20% - 1px);
+    background: rgb(250,250,250);
+    border-left: .5px solid rgba(0,0,0,.1);
+
+    
 }
+.Playlist{
+    max-height: calc(100vh - 32px - 56px - 11px);
+    overflow-y: auto;
+
+    margin-top: 42px;
+}
+.Playlist .dropzone{
+    height: 28px;
+    line-height: 28px;
+    display: flex;
+    position: relative;
+    border-bottom: .5px solid rgba(0,0,0,.1);
+    overflow: hidden;
+}
+.Playlist .dropzone svg{
+    height: 20px;
+    width: 20px;
+    margin: 4px;
+    pointer-events: none;
+}
+.Playlist .dropzone .label{
+    height: 28px;
+    pointer-events: none;
+
+}
+.labelcover{
+    height: 100%;
+    width: 110px;
+    box-shadow: inset -90px 0px 20px white;
+    position: absolute;
+    right: 0;
+}
+.Playlist .dropzone .audio{
+    height: 20px;
+    border-style: dashed;
+    border-radius: 15px;
+    margin: 2px;
+    line-height: 20px;
+    padding-left: 4px;
+    padding-right: 4px;
+    position: absolute;
+    right: 30px;
+    background: rgb(240,240,240);
+}
+.Playlist .dropzone .audio.Set{
+    background: teal;
+}
+.Playlist .dropzone .remove{
+    right: 2.5px;
+    position: absolute;
+    background: rgb(200,200,200);
+    border-radius: 5em;
+    height: 15px;
+    width: 15px;
+    padding: 3px;
+    opacity: .5;
+    pointer-events: auto;
+    cursor: pointer;
+}
+.Playlist .dropzone .remove:hover{
+    opacity: 1;
+    transition: .15s;
+}
+
 #Content{
     width: 60%;
-    background: purple;
+    border-left: .5px solid rgba(0,0,0,.1);
+    background: rgb(250,250,250);
+
+    overflow: hidden;
+}
+#ItemList{
+    padding: 5px;
+    padding-left: 10px;
+
+    max-height: calc(100vh - 21px - 32px - 56px);
+    overflow-y: auto;
+    margin-top: 42px;
+}
+.Item{
+    width: 165px;
+    height: 100px;
+    background: black;
+    border-radius: 5px;
+    margin: 5px;
+    float: left;
+    margin-bottom: 35px;
+    position: relative;
+    cursor: pointer;
+
+}
+.Item .sound{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    margin: 5px;
+    opacity: 0;
+    transition: .15s;
+
+}
+.Item.video:hover .sound{
+    opacity: 1;
+    transition: .15s;
+}
+.Item img{
+    width: 100%;
+    height: 100px;
+    border-radius: 5px;
+}
+.Item.video img{
+    display: none;
+}
+.Item video{
+    display: none;
+}
+.Item.video video{
+    background: black;
+    width: 100%;
+    height: 100px;
+    border-radius: 5px;
+    display: inline-block;
+}
+.Item .add{
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    margin-top: 30px;
+    margin-left: 65px;
+    opacity: 0;
+    transform: scale(1.2);
+    transition: .15s;
+    position: absolute;
+    top: 0;
+}
+.Item:hover .add{
+    opacity: 1;
+    transform: scale(1);
+    transition: .15s;
+
 }
 .Container{
     height: 100%;
+    position: relative;
+}
+
+
+
+
+#TransferBase{
+    width: 100%;
+    height: 100%;
+    background: rgb(0,0,0,.5);
+    position: fixed;
+    bottom: 0;
+    transition: .15s;
+}
+#TransferBase.Closed{
+    background: rgb(0,0,0,0);
+    transition: .15s;
+    pointer-events: none;
+}
+#Transfer{
+    width: 100%;
+    height: 40vh;
+    background: rgb(250,250,250);
+    position: fixed;
+    bottom: 0;
+    transition: .15s;
+}
+#TransferBase.Closed #Transfer{
+    bottom: -40vh;
+    transition: .15s;
+}
+#TransferPlayer{
+    font-weight: bold;
+}
+
+.draggable {
+    cursor: move;
+    user-select: none;
+}
+
+
+
+#AudioBase{
+    width: 100%;
+    height: 100%;
+    background: rgb(0,0,0,.5);
+    position: fixed;
+    bottom: 0;
+    transition: .15s;
+}
+#AudioBase.Closed{
+    background: rgb(0,0,0,0);
+    transition: .15s;
+    pointer-events: none;
+}
+#Audio{
+    width: 100%;
+    height: 40vh;
+    background: rgb(250,250,250);
+    position: fixed;
+    bottom: 0;
+    transition: .15s;
+}
+#AudioBase.Closed #Audio{
+    bottom: -40vh;
+    transition: .15s;
+}
+
+#AudioContent{
+    font-weight: bold;
 }
