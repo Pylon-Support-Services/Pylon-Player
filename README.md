@@ -1,7 +1,7 @@
 # PressPlay
 
 Prerequisites
-- Download Player setup from: http://pressplay.gopylonservices.com/setup.exe
+- Download Player setup from: http://pressplay.gopylonservices.com/
 - Install on Windows 10/11
 - Start Pylon Player after installation
 
