@@ -166,13 +166,12 @@ tr.Heading{
     width: auto;
     height: 20px;
     border-radius: 2em;
-    background: teal;
+    background: #F79430;
     margin: 2px;
     display: inline-block;
     padding: 1px;
     padding-left: 7px;
     padding-right: 7px;
-
     cursor: pointer;
     user-select: none;
 }
@@ -181,8 +180,6 @@ tr.Heading{
     width: calc(20% - 1px);
     background: rgb(250,250,250);
     border-left: .5px solid rgba(0,0,0,.1);
-
-    
 }
 .Playlist{
     max-height: calc(100vh - 32px - 56px - 11px);
@@ -198,11 +195,20 @@ tr.Heading{
     border-bottom: .5px solid rgba(0,0,0,.1);
     overflow: hidden;
 }
+.Playlist .dropzone .duration{
+    display: none;
+}
+.Playlist .dropzone .id{
+    color: red;
+    display: none;
+}
 .Playlist .dropzone svg{
     height: 20px;
     width: 20px;
     margin: 4px;
     pointer-events: none;
+
+    min-width: 20px;
 }
 .Playlist .dropzone .label{
     height: 28px;
@@ -229,7 +235,7 @@ tr.Heading{
     background: rgb(240,240,240);
 }
 .Playlist .dropzone .audio.Set{
-    background: teal;
+    background: rgb(150,150,150);
 }
 .Playlist .dropzone .remove{
     right: 2.5px;
@@ -242,6 +248,8 @@ tr.Heading{
     opacity: .5;
     pointer-events: auto;
     cursor: pointer;
+
+    min-width: 15px;
 }
 .Playlist .dropzone .remove:hover{
     opacity: 1;
@@ -262,6 +270,8 @@ tr.Heading{
     max-height: calc(100vh - 21px - 32px - 56px);
     overflow-y: auto;
     margin-top: 42px;
+
+    padding-bottom: 6px;
 }
 .Item{
     width: 165px;
@@ -272,8 +282,12 @@ tr.Heading{
     float: left;
     margin-bottom: 35px;
     position: relative;
-    cursor: pointer;
 
+}
+.Item .id{
+    color: red;
+
+    display: none;
 }
 .Item .sound{
     width: 20px;
@@ -283,21 +297,53 @@ tr.Heading{
     opacity: 0;
     transition: .15s;
 
+    pointer-events: none;
 }
 .Item.video:hover .sound{
     opacity: 1;
     transition: .15s;
 }
+.Item .remove{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    margin: 5px;
+    opacity: 0;
+    transition: .15s;
+    right: 0;
+    fill: red;
+    cursor: pointer;
+
+}
+.Item .remove:hover{
+    fill: red;
+    transition: .15s;
+}
+.Item:hover .remove{
+    opacity: 1;
+    transition: .15s;
+}
+.Item .duration{
+    display: none;
+}
+
 .Item img{
     width: 100%;
     height: 100px;
     border-radius: 5px;
+    object-fit: contain;
+
+    pointer-events: none;
+
 }
 .Item.video img{
     display: none;
 }
 .Item video{
     display: none;
+
+    pointer-events: none;
+
 }
 .Item.video video{
     background: black;
@@ -317,6 +363,9 @@ tr.Heading{
     transition: .15s;
     position: absolute;
     top: 0;
+
+    pointer-events: none;
+
 }
 .Item:hover .add{
     opacity: 1;
@@ -338,11 +387,11 @@ tr.Heading{
     background: rgb(0,0,0,.5);
     position: fixed;
     bottom: 0;
-    transition: .15s;
+    transition: .25s;
 }
 #TransferBase.Closed{
     background: rgb(0,0,0,0);
-    transition: .15s;
+    transition: .25s;
     pointer-events: none;
 }
 #Transfer{
@@ -357,10 +406,28 @@ tr.Heading{
     bottom: -40vh;
     transition: .15s;
 }
+#Transfer .Header{
+    margin-top: -43px;
+    background: rgb(50,50,50);
+    color: white;
+    pointer-events: none;
+    opacity: 1;
+    transition: .15s;
+}
+#TransferBase.Closed .Header{
+    opacity: 0;
+    transition: .15s;
+}
 #TransferPlayer{
     font-weight: bold;
 }
-
+.TableContainer{
+    height: 244px;
+    overflow-y: auto;
+}
+.GroupDetails th, .GroupDetails td{
+    width: 200px;
+}
 .draggable {
     cursor: move;
     user-select: none;
@@ -381,6 +448,19 @@ tr.Heading{
     transition: .15s;
     pointer-events: none;
 }
+#Audio .Header{
+    margin-top: -43px;
+    background: rgb(50,50,50);
+    color: white;
+    pointer-events: none;
+    opacity: 1;
+    transition: .15s;
+}
+#AudioBase.Closed .Header{
+    opacity: 0;
+    transition: .15s;
+}
+
 #Audio{
     width: 100%;
     height: 40vh;
@@ -396,4 +476,90 @@ tr.Heading{
 
 #AudioContent{
     font-weight: bold;
+}
+
+
+#Upload{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    background: teal;
+    border-radius: 5em;
+    overflow: hidden;
+    transition: .5s;
+}
+#Upload.loading{
+    transform: scale(.75);
+    transition: .5s;
+
+    background: #F79430;
+}
+#UploadContainer{
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+}
+#Upload #UploadIcon{
+    width: 20px;
+    height: 20px;
+    padding: 15px;
+    position: absolute;
+}
+#Upload.loading #UploadIcon{
+    display: none;
+}
+#Upload #UploadLoader{
+    display: none;
+}
+#Upload.loading #UploadLoader{
+    width: 20px;
+    height: 20px;
+    padding: 15px;
+    position: absolute;
+
+    display: inline-block;
+
+    animation-name: spin ;
+    animation-duration: 1s ;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+
+    pointer-events: none;
+}
+@keyframes spin{
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+#Upload label{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+}
+#Upload input{
+    display: none;
+}
+#Upload.loading label{
+    pointer-events: none;
+}
+
+#UploadPercentage{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 5px;
+    background: rgb(50,50,50);
+}
+#UploadPercentage.loading{
+    background: #F79430;
+
+}
+
+#VideoUpload{
+    display: none;
 }
