@@ -20,3 +20,5 @@ Upcoming Features
 * Dark Mode
 * User Profile
 * Playlist Templating 
+* Player Status
+* Player Log
