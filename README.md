@@ -16,7 +16,7 @@ Location Spicific Content
 
 Upcoming Features
 * Upload from URL
-* Accoung Management 
+* Account Management 
 * Dark Mode
 * User Profile
 * Playlist Templating 
