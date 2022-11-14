@@ -17,7 +17,7 @@
     <iframe style="display: none;" src="http://pressplay.gopylonservices.com/silence.mp3" allow="autoplay" id="audio"></iframe>
 
     <div id="Header">
-        <div id="Logo"><img src="http://pressplay.gopylonservices.com/assets/Pylon%20logo-new.png"></div>
+        <div id="Logo"><img src="http://pressplay.gopylonservices.com/assets/Pylon%20logo-new.png"/></div>
         <div id="Center"></div>
         <div id="Profile">
             <img src="http://pressplay.gopylonservices.com/assets/Profile.png">
