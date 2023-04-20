@@ -12,7 +12,7 @@ After Installation
 
 Location Spicific Content
 ![image](https://user-images.githubusercontent.com/38777872/183315737-fbd94d71-f33e-4af1-bfe5-ab775eb3e612.png)
-- Dedicate media content to run in selected location only
+- Dedicate media content to run on selected computers.
 
 Upcoming Features
 * Upload from URL
@@ -22,3 +22,4 @@ Upcoming Features
 * Playlist Templating 
 * Player Status
 * Player Log
+* Location Renaming
