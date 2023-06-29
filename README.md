@@ -7,4 +7,4 @@ Prerequisites
 
 After Installation
 - Manage Players, Playlist and Content at: https://player.gopylonservices.com/account
-- View Solution Report at: https://goypylonservices.com/projects/guardian-asset-management
+- View Solution Report at: https://gopylonservices.com/projects/guardian-asset-management
