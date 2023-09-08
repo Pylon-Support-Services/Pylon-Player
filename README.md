@@ -23,3 +23,6 @@ Upcoming Features
 * Player Status
 * Player Log
 * Location Renaming
+* Windows Optimization
+* Offline Configuration
+* Offline Playlists
