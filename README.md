@@ -9,7 +9,9 @@ After Installation
 - Manage Players, Playlist and Content at: https://player.gopylonservices.com/account
 - View Solution Report at: https://gopylonservices.com/projects/solution-report
 
+
 *Solution Updates*
+
 Version 1.0.0.0 (main)
 - Content Synchronization
 - Uptime Monitoring
